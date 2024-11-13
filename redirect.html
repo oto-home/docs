@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>Redirecting...</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1 id="redirecting-msg"></h1>
+    <div id="redirecting-description"></div>
+    <div id="confirmation-box">
+      <p id="confirmation-text">
+        以下のURLにリダイレクトします。<br>
+        <strong id="url-placeholder"></strong><br>
+        よろしいですか？
+      </p>
+      <button class="btn confirm" id="confirm-yes">はい</button>
+      <button class="btn cancel" id="confirm-no">いいえ</button>
+    </div>
+
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const redirectUrl = urlParams.get('url');
+      const confirmationText = document.getElementById('confirmation-text');
+      const urlPlaceholder = document.getElementById('url-placeholder');
+      
+      if (redirectUrl) {
+        const urlWithoutHttp = redirectUrl.replace(/^https?:\/\//, '');
+        console.log(urlWithoutHttp)
+        urlPlaceholder.textContent = `${urlWithoutHttp}`;
+
+        document.getElementById('confirm-yes').addEventListener('click', function() {
+          document.getElementById('confirmation-box').style.display = 'none';
+          document.getElementById('redirecting-msg').textContent = 'Redirecting...';
+          document.getElementById('redirecting-description').innerHTML = `
+            <p>
+              リダイレクトしない場合、<a href="${redirectUrl}">コチラ</a>をクリックしてください。
+            <p>  
+          `;
+          setTimeout(() => {
+            window.location.href = redirectUrl;
+          }, 3000);
+        });
+
+        document.getElementById('confirm-no').addEventListener('click', function() {
+          document.getElementById('confirmation-box').style.display = 'none';
+          document.getElementById('redirecting-msg').textContent = 'Cancelled.';
+          document.getElementById('redirecting-description').innerHTML = `
+            <p>
+              ウィンドウを閉じます。
+            <p>  
+          `;
+          setTimeout(() => {
+            window.close();
+          }, 3000);
+        });
+      } else {
+        document.getElementById('confirm-yes').style.display = 'none';
+        document.getElementById('confirm-no').style.display = 'none';
+        confirmationText.textContent = 'リダイレクト先のURLがありません。';
+        setTimeout(() => {
+          window.close();
+        }, 3000);
+      }
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
