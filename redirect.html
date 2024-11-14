@@ -28,7 +28,7 @@
       const urlPlaceholder = document.getElementById('url-placeholder');
       
       if (redirectUrl) {
-        const urlWithoutHttp = redirectUrl.replace(/^https?:\/\//, '');
+        const urlWithoutHttp = redirectUrl.replace(/^https?:\/\//, '').endsWith('/') ? redirectUrl.replace(/^https?:\/\//, '').slice(0, -1) : redirectUrl.replace(/^https?:\/\//, '');
         console.log(urlWithoutHttp)
         urlPlaceholder.textContent = `${urlWithoutHttp}`;
 
