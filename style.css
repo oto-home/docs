@@ -247,6 +247,10 @@ button {
   transform: scale(1.1);
 }
 
+.notfound {
+  text-align: center;
+}
+
 /* Mobile */
 @media (max-width: 800px) {
   section {
@@ -299,6 +303,10 @@ button {
     margin-left: 50px;
     margin-right: 50px;
     width: calc(100% - 100px);
+  }
+
+  .discord-button {
+    width: 260px;
   }
 }
 
