@@ -7,6 +7,7 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.6;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,10 +47,24 @@ p span {
   display: block;
 }
 
-
 ul li {
-  font-size: 20px;
+  font-size: 16px;
   padding: 6px;
+}
+
+.t-pp {
+  font-family: serif;
+  background-color: #aeaeae;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.t-pp p {
+  font-size: 12px;
+}
+
+.t-pp a {
+  text-decoration: none;
 }
 
 img {
@@ -275,7 +290,7 @@ button {
   }
 
   ul li {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   footer p {
