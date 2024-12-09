@@ -262,6 +262,20 @@ button {
   transform: scale(1.1);
 }
 
+#confirmation-text {
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+#url-placeholder {
+  display: inline;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
 .notfound {
   text-align: center;
 }
