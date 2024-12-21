@@ -33,3 +33,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+const footer = document.getElementsByTagName('footer')[0];
+if (footer) {
+  footer.textContent = footer.textContent.replace('!!FULL_YEAR!!', `${new Date().getFullYear()}`);
+};
